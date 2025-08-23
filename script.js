@@ -18,7 +18,7 @@ function levelup(){
     userseq=[];
     level++;
     h3.innerText=`Level ${level}`;
-    let random= Math.floor(Math.random() *3);
+    let random= Math.floor(Math.random() *4);
     let randomcolor= color[random]; 
     let randbtn =  document.querySelector(`.${randomcolor}`)
     let btnn=randbtn.getAttribute("id")
@@ -79,3 +79,4 @@ function max_score(level){
         max_score.innerText=text;
          checkans(userseq.length-1);
 }
+
