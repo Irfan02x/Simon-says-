@@ -1,7 +1,9 @@
 let btns = document.querySelectorAll(".button");
 let h3 = document.querySelector("h3");
+let score_box= document.querySelector(".box_score")
 let start =false;
 let level=0;
+let max=0;
 let color=["orange", "blue", "green", "purpel"];
 let gameseq=[];
 let userseq=[];
@@ -32,7 +34,8 @@ function checkans(idx){
            document.querySelector("body").style.backgroundColor="red";
            setTimeout(function(){ 
             document.querySelector("body").style.backgroundColor="blanchedalmond"}, 100);
-        reset(); 
+            upadte_score(level);
+            reset(); 
       }
 }
 
@@ -48,7 +51,7 @@ function btnpress(){
      let btnn=btn.getAttribute("id")
      userseq.push(btnn);
     flash(btn);
-    checkans(userseq.length-1);
+   max_score(level);
 }
 for(btn of btns){
     btn.addEventListener("click", btnpress);
@@ -59,4 +62,20 @@ function reset(){
             userseq=[];
             start=false;
             level=0
+}
+
+ function upadte_score(level) {
+       let score = document.createElement("h4");
+       let text= `your previous score ${level}`;
+        score.innerText=text;
+        score_box.append(score);
+}
+function max_score(level){
+  let max_score = document.querySelector("h4")
+  if(max<level){
+    max=level;
+  }
+  let text= `High score ${max}`;
+        max_score.innerText=text;
+         checkans(userseq.length-1);
 }
