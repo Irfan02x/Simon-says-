@@ -8,12 +8,19 @@ let color=["orange", "blue", "green", "purpel"];
 let gameseq=[];
 let userseq=[];
 
-document.addEventListener("keypress", function(){
-    if(start==false){
-    start=true;
-    levelup();
-}
-})
+document.addEventListener("click", function () {
+    if (!start) {
+        start = true;
+        levelup();
+    }
+});
+
+document.addEventListener("touchstart", function () {
+    if (!start) {
+        start = true;
+        levelup();
+    }
+});
 function levelup(){
     userseq=[];
     level++;
@@ -79,4 +86,5 @@ function max_score(level){
         max_score.innerText=text;
          checkans(userseq.length-1);
 }
+
 
